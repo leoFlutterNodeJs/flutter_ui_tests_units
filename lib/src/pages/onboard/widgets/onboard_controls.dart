@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:ui_tests_units/src/pages/onboard/widgets/onboard_dots.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 
 class OnboardControls extends StatelessWidget {
@@ -13,11 +13,7 @@ class OnboardControls extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            width: 40,
-            height: 10,
-            color: Colors.grey,
-          ),
+          OnboardDots(),
           CupertinoButton(
             onPressed: () {},
             color: primaryColor,
