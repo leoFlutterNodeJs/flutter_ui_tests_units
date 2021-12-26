@@ -1,9 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ui_tests_units">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="ui_tests_units"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/ic_logo">
         <activity
             android:name=".MainActivity"
             android:exported="true"
