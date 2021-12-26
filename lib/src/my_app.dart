@@ -1,6 +1,7 @@
-// ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
+
+import '../src/utils/colors.dart';
+import './routes/pages.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -8,13 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: primaryColor,
       ),
-      home: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.white,
-      ),
+      routes: Pages.routes,
+      initialRoute: Pages.INITIAL,
     );
   }
 }
