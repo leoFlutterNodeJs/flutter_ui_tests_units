@@ -20,6 +20,7 @@ dev_dependencies:
   google_fonts: ^1.1.1
   cached_network_image: ^2.5.0
   flutter_svg: ^0.19.1
+  dots_indicator: ^1.2.0
 
 
 flutter:
