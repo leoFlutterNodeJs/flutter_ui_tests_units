@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:ui_tests_units/src/data/models/onboard_items.dart';
 import 'package:ui_tests_units/src/pages/onboard/onboard_controller.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ui_tests_units/src/utils/font_styles.dart';
 
 class OnboardSlider extends StatelessWidget {
   @override
@@ -23,16 +24,12 @@ class OnboardSlider extends StatelessWidget {
                   Text(
                     item.title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: FontStyle.title,
                   ),
                   SizedBox(height: 15),
                   Text(
                     item.description,
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
                   ),
                   SizedBox(height: 50),
                 ],
