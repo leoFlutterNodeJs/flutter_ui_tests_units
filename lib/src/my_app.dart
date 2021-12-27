@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_tests_units/src/utils/font_styles.dart';
 
 import '../src/utils/colors.dart';
 import './routes/pages.dart';
@@ -10,6 +12,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: primaryColor,
+        textTheme: FontStyle.TextTheme,
+        cupertinoOverrideTheme: CupertinoThemeData(
+          textTheme: CupertinoTextThemeData(
+            textStyle: FontStyle.textButton,
+          ),
+        ),
       ),
       routes: Pages.routes,
       initialRoute: Pages.INITIAL,
