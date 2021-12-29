@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ui_tests_units/src/pages/onboard/onboard_controller.dart';
 import 'package:ui_tests_units/src/pages/onboard/widgets/onboard_dots.dart';
+import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -19,10 +20,12 @@ class OnboardControls extends StatelessWidget {
           Consumer<OnboardController>(
             builder: (_, controller, __) => CupertinoButton(
               onPressed: () {
-                controller.pageController.nextPage(
-                  duration: Duration(milliseconds: 400),
-                  curve: Curves.linear,
-                );
+                controller.currentPage == 2
+                    ? Navigator.pushReplacementNamed(context, Routes.WELCOME)
+                    : controller.pageController.nextPage(
+                        duration: Duration(milliseconds: 400),
+                        curve: Curves.linear,
+                      );
               },
               color: primaryColor,
               borderRadius: BorderRadius.circular(30),
