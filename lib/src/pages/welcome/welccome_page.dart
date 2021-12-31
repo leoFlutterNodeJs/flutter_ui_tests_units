@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
-import 'package:ui_tests_units/src/global_widgets/circle_button.dart';
+import 'package:ui_tests_units/src/routes/routes.dart';
+import 'package:ui_tests_units/src/utils/social_buttons.dart';
 
 import '../../../src/utils/font_styles.dart';
 import '../../global_widgets/global_widgets.dart';
@@ -31,7 +32,11 @@ class WelcomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                      child: RoundedButton(label: 'Login', onPressed: () {})),
+                      child: RoundedButton(
+                    label: 'Login',
+                    onPressed: () =>
+                        Navigator.pushReplacementNamed(context, Routes.LOGIN),
+                  )),
                   SizedBox(width: 10),
                   Expanded(
                     child: RoundedButton(
@@ -47,23 +52,7 @@ class WelcomePage extends StatelessWidget {
               SizedBox(height: 35),
               Text("Or social media"),
               SizedBox(height: 5),
-              Container(
-                margin: EdgeInsets.only(bottom: 25),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleButton(
-                        onPressed: () {},
-                        iconPath: "assets/svg/icons/ic_facebook.svg"),
-                    CircleButton(
-                        onPressed: () {},
-                        iconPath: "assets/svg/icons/ic_google_plus.svg"),
-                    CircleButton(
-                        onPressed: () {},
-                        iconPath: "assets/svg/icons/ic_apple.svg"),
-                  ],
-                ),
-              ),
+              SocialButtons(),
             ],
           ),
         ),
