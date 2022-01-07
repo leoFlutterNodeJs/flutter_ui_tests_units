@@ -5,14 +5,19 @@ import 'package:ui_tests_units/src/utils/colors.dart';
 class InputText extends StatefulWidget {
   final Widget prefixIcon;
   final void Function(String) onChanged;
+  final void Function(String) onSubmitted;
   final bool Function(String) validator;
   final bool obscureText;
-  InputText({
-    @required this.prefixIcon,
-    @required this.validator,
-    @required this.onChanged,
-    this.obscureText = false,
-  });
+  final TextInputAction textInputAction;
+  final TextInputType textInputType;
+  InputText(
+      {@required this.prefixIcon,
+      @required this.validator,
+      @required this.onChanged,
+      this.onSubmitted,
+      this.textInputAction,
+      this.obscureText = false,
+      this.textInputType = TextInputType.text});
 
   @override
   _InputTextState createState() => _InputTextState();
@@ -49,7 +54,10 @@ class _InputTextState extends State<InputText> {
   Widget build(BuildContext context) {
     return TextField(
       onChanged: _validate,
+      onSubmitted: widget.onSubmitted,
+      textInputAction: widget.textInputAction,
       obscureText: _isObscure,
+      keyboardType: widget.textInputType,
       decoration: InputDecoration(
           fillColor: primaryColor,
           prefixIcon: this.widget.prefixIcon,
