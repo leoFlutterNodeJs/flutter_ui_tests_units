@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_tests_units/src/global_widgets/custom_form.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
+
+import 'custom_form.dart';
 
 class InputText extends StatefulWidget {
   final Widget prefixIcon;

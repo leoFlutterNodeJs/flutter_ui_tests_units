@@ -5,7 +5,7 @@ import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/utils/social_buttons.dart';
 
 import '../../../../src/utils/font_styles.dart';
-import '../../../global_widgets/global_widgets.dart';
+import '../../global_widgets/global_widgets.dart';
 
 class WelcomePage extends StatelessWidget {
   @override

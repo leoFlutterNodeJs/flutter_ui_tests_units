@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:ui_tests_units/src/data/models/user.dart';
 import 'package:ui_tests_units/src/data/repositories/authentication_repository.dart';
-import 'package:ui_tests_units/src/global_widgets/custom_form.dart';
 import 'package:ui_tests_units/src/helpers/get.dart';
+import 'package:ui_tests_units/src/ui/global_widgets/custom_form.dart';
 
 class RegisterController extends ChangeNotifier {
   String _name = "", _lastName = "", _email = "";

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_tests_units/src/global_widgets/global_widgets.dart';
+import 'package:ui_tests_units/src/ui/global_widgets/global_widgets.dart';
 import 'package:ui_tests_units/src/utils/dialogs.dart';
 
 import '../forgot_password_controller.dart';
