@@ -30,12 +30,15 @@ abstract class ProgressDialog {
   static Future<void> show(BuildContext context) {
     return showCupertinoModalPopup(
         context: context,
-        builder: (_) => Container(
-              width: double.infinity,
-              height: double.infinity,
-              alignment: Alignment.center,
-              color: Colors.white30,
-              child: CircularProgressIndicator(),
+        builder: (_) => WillPopScope(
+              onWillPop: () async => false,
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                alignment: Alignment.center,
+                color: Colors.white30,
+                child: CupertinoActivityIndicator(),
+              ),
             ));
   }
 }

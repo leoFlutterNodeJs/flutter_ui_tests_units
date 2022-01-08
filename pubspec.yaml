@@ -12,15 +12,16 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
   provider: ^4.3.3
   google_fonts: ^1.1.1
   cached_network_image: ^2.5.0
   flutter_svg: ^0.19.1
   dots_indicator: ^1.2.0
+  get_it: ^5.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
 
 
 flutter:
