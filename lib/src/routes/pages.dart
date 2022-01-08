@@ -9,5 +9,6 @@ abstract class Pages {
     Routes.ONBOARD: (_) => OnboardPage(),
     Routes.WELCOME: (_) => WelcomePage(),
     Routes.LOGIN: (_) => LoginPage(),
+    Routes.REGISTER: (_) => RegisterPage(),
   };
 }

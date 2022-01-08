@@ -36,16 +36,29 @@ class LoginForm extends StatelessWidget {
       child: Column(
         children: [
           InputText(
+            labelText: "E-mail",
             prefixIcon: Icon(Icons.email_outlined),
-            validator: (text) => text.contains("@"),
+            validator: (text) {
+              if (text.contains("@")) {
+                return null;
+              }
+              return "Invalid E-mail!";
+            },
             onChanged: controller.onEmailChanged,
             textInputAction: TextInputAction.continueAction,
             textInputType: TextInputType.emailAddress,
           ),
+          SizedBox(height: 15),
           InputText(
+            labelText: "Password",
             prefixIcon: Icon(Icons.lock_outline),
             obscureText: true,
-            validator: (text) => text.length > 4,
+            validator: (text) {
+              if (text.length > 4) {
+                return null;
+              }
+              return "Invalid Password!";
+            },
             onChanged: controller.onPasswordChanged,
             onSubmitted: (text) => _submit(context),
             textInputAction: TextInputAction.done,

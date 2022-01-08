@@ -18,24 +18,28 @@ class LoginPage extends StatelessWidget {
         final padding = data.padding;
         return Scaffold(
           body: SafeArea(
-            child: SingleChildScrollView(
-              child: Container(
-                width: double.infinity,
-                height: size.height - padding.top - padding.bottom,
-                child: Column(
-                  children: [
-                    Text(
-                      'Welcome Back!',
-                      style: FontStyle.title.copyWith(fontSize: 22),
-                    ),
-                    Expanded(child: SvgPicture.asset("assets/svg/login.svg")),
-                    LoginForm(),
-                    SizedBox(height: 10),
-                    Center(child: Text("Login via OTP")),
-                    SizedBox(height: 5),
-                    SocialButtons(),
-                    SignUp(),
-                  ],
+            child: GestureDetector(
+              onTap: () => FocusScope.of(context).unfocus(),
+              child: SingleChildScrollView(
+                child: Container(
+                  width: double.infinity,
+                  color: Colors.transparent,
+                  height: size.height - padding.top - padding.bottom,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Welcome Back!',
+                        style: FontStyle.title.copyWith(fontSize: 22),
+                      ),
+                      Expanded(child: SvgPicture.asset("assets/svg/login.svg")),
+                      LoginForm(),
+                      SizedBox(height: 10),
+                      Center(child: Text("Login via OTP")),
+                      SizedBox(height: 5),
+                      SocialButtons(),
+                      SignUp(),
+                    ],
+                  ),
                 ),
               ),
             ),

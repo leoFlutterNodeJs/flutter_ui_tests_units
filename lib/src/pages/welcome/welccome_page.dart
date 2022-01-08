@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:ui_tests_units/src/pages/login/widgets/widgets.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/utils/social_buttons.dart';
 
@@ -53,6 +54,8 @@ class WelcomePage extends StatelessWidget {
               Text("Or social media"),
               SizedBox(height: 5),
               SocialButtons(),
+              SizedBox(height: 5),
+              SignUp(),
             ],
           ),
         ),
