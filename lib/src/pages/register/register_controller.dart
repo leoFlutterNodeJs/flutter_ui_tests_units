@@ -1,15 +1,14 @@
 import 'package:flutter/widgets.dart';
-import 'package:ui_tests_units/src/data/implementation/authentication_respository_implementation.dart';
 import 'package:ui_tests_units/src/data/models/user.dart';
-import 'package:ui_tests_units/src/data/providers/authentication_provider.dart';
 import 'package:ui_tests_units/src/data/repositories/authentication_repository.dart';
 import 'package:ui_tests_units/src/global_widgets/custom_form.dart';
+import 'package:ui_tests_units/src/helpers/get.dart';
 
 class RegisterController extends ChangeNotifier {
   String _name = "", _lastName = "", _email = "";
   GlobalKey<CustomFormState> formKey = GlobalKey();
   final AuthenticationRepository _repository =
-      AuthenticationRepositoryImpl(AuthenticationProvider());
+      Get.i.find<AuthenticationRepository>();
 
   void onNameChanged(String text) => _name = text;
   void onLastNameChanged(String text) => _lastName = text;
