@@ -13,4 +13,9 @@ class AuthenticationProvider {
     }
     return null;
   }
+
+  Future<bool> register(User user) async {
+    await Future.delayed(Duration(seconds: 3));
+    return true;
+  }
 }

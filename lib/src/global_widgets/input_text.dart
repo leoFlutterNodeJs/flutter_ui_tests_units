@@ -1,41 +1,58 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_tests_units/src/global_widgets/custom_form.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 
 class InputText extends StatefulWidget {
   final Widget prefixIcon;
   final void Function(String) onChanged;
   final void Function(String) onSubmitted;
-  final bool Function(String) validator;
+  final String Function(String) validator;
   final bool obscureText;
   final TextInputAction textInputAction;
   final TextInputType textInputType;
+  final String labelText;
   InputText(
       {@required this.prefixIcon,
-      @required this.validator,
       @required this.onChanged,
+      this.validator,
       this.onSubmitted,
       this.textInputAction,
+      this.labelText,
       this.obscureText = false,
       this.textInputType = TextInputType.text});
 
   @override
-  _InputTextState createState() => _InputTextState();
+  InputTextState createState() => InputTextState();
 }
 
-class _InputTextState extends State<InputText> {
-  bool _isOk = false;
+class InputTextState extends State<InputText> {
+  String _errorText = '';
   bool _isObscure = false;
+  CustomFormState _formState;
+
+  String get errorText => _errorText;
 
   @override
   void initState() {
-    _isObscure = widget.obscureText;
     super.initState();
+    _isObscure = widget.obscureText;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _formState = CustomForm.of(context);
+      _formState?.register(this);
+    });
+  }
+
+  @override
+  void deactivate() {
+    _formState?.remove(this);
+    super.deactivate();
   }
 
   void _validate(String text) {
     if (widget.validator != null) {
-      _isOk = widget.validator(text);
+      _errorText = widget.validator(text);
       setState(() {});
     }
 
@@ -59,6 +76,8 @@ class _InputTextState extends State<InputText> {
       obscureText: _isObscure,
       keyboardType: widget.textInputType,
       decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 5),
+          labelText: widget.labelText,
           fillColor: primaryColor,
           prefixIcon: this.widget.prefixIcon,
           suffixIcon: widget.obscureText
@@ -72,7 +91,7 @@ class _InputTextState extends State<InputText> {
                 )
               : Icon(
                   Icons.check_circle,
-                  color: _isOk ? primaryColor : Colors.grey,
+                  color: _errorText == null ? primaryColor : Colors.grey,
                 )),
     );
   }

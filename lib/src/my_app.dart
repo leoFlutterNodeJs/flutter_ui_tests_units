@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: primaryColor,
-        colorScheme: ColorScheme.dark(primary: primaryColor),
+        colorScheme: ColorScheme.light(secondary: primaryColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: FontStyle.TextTheme,
         cupertinoOverrideTheme: CupertinoThemeData(
