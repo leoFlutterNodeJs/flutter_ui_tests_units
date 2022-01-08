@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_tests_units/src/routes/routes.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Wrap(
@@ -22,7 +19,7 @@ class SignUp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, Routes.REGISTER),
         )
       ],
     );

@@ -3,18 +3,18 @@ import '../repositories/authentication_repository.dart';
 import '../models/user.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
-  final AuthenticationProvider _authenticationApi;
+  final AuthenticationProvider _authenticationProvider;
 
-  AuthenticationRepositoryImpl(this._authenticationApi);
+  AuthenticationRepositoryImpl(this._authenticationProvider);
 
   @override
   Future<User> login(String email, String password) {
-    return _authenticationApi.login(email, password);
+    return _authenticationProvider.login(email, password);
   }
 
   @override
   Future<bool> register(User user) {
-    return null;
+    return _authenticationProvider.register(user);
   }
 
   @override
