@@ -10,5 +10,6 @@ abstract class Pages {
     Routes.WELCOME: (_) => WelcomePage(),
     Routes.LOGIN: (_) => LoginPage(),
     Routes.REGISTER: (_) => RegisterPage(),
+    Routes.FORGOTPASSWORD: (_) => ForgotPassword(),
   };
 }
