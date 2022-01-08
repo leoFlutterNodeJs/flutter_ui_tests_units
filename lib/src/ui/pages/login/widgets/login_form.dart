@@ -22,7 +22,7 @@ class LoginForm extends StatelessWidget {
       Dialogs.alert(context,
           title: "ERROR", description: "Invalid email or password");
     } else {
-      print("GOT TO HOME!");
+      Navigator.pushNamedAndRemoveUntil(context, Routes.HOME, (route) => false);
     }
   }
 
@@ -65,7 +65,7 @@ class LoginForm extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: CupertinoButton(
               onPressed: () =>
-                  Navigator.pushNamed(context, Routes.FORGOTPASSWORD),
+                  Navigator.pushNamed(context, Routes.FORGOT_PASSWORD),
               child: Text('Forget Password'),
             ),
           ),
