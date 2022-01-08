@@ -4,7 +4,6 @@ import 'package:ui_tests_units/src/global_widgets/custom_form.dart';
 import 'package:ui_tests_units/src/global_widgets/input_text.dart';
 import 'package:ui_tests_units/src/global_widgets/rounded_button.dart';
 import 'package:ui_tests_units/src/pages/register/register_controller.dart';
-import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/utils/dialogs.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -17,36 +16,17 @@ class RegisterForm extends StatelessWidget {
       final isOk = await controller.submit();
       Navigator.pop(context);
       if (!isOk) {
-        showDialog(
-            context: context,
-            builder: (_) => AlertDialog(
-                  title: Text("ERROR"),
-                  content: Text("Register Fail!"),
-                ));
+        Dialogs.alert(context, title: "ERROR", description: "Register Fail!");
       } else {
-        showDialog(
-            context: context,
-            builder: (_) => WillPopScope(
-                  onWillPop: () async => false,
-                  child: AlertDialog(
-                    title: Text("GOOD"),
-                    content: Text("Register OK!"),
-                    actions: [
-                      TextButton(
-                          onPressed: () => Navigator.popUntil(context,
-                              (route) => route.settings.name == Routes.LOGIN),
-                          child: Text("OK"))
-                    ],
-                  ),
-                ));
+        await Dialogs.alert(context,
+            title: "GOOD",
+            description: "Register OK!",
+            dismissible: false,
+            okText: "Go to login");
+        Navigator.pop(context);
       }
     } else {
-      showDialog(
-          context: context,
-          builder: (_) => AlertDialog(
-                title: Text("ERROR"),
-                content: Text("Invalid Fields"),
-              ));
+      Dialogs.alert(context, title: "ERROR", description: "Invalid Fields");
     }
   }
 

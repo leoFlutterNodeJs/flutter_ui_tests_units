@@ -17,12 +17,8 @@ class LoginForm extends StatelessWidget {
     final User user = await controller.submit();
     Navigator.pop(context);
     if (user == null) {
-      showDialog(
-          context: context,
-          builder: (_) => AlertDialog(
-                title: Text("ERROR: "),
-                content: Text("Invalid email or password"),
-              ));
+      Dialogs.alert(context,
+          title: "ERROR", description: "Invalid email or password");
     } else {
       print("GOT TO HOME!");
     }
