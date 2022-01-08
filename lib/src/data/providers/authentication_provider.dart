@@ -18,4 +18,9 @@ class AuthenticationProvider {
     await Future.delayed(Duration(seconds: 3));
     return true;
   }
+
+  Future<bool> sendResetToken(String email) async {
+    await Future.delayed(Duration(seconds: 3));
+    return true;
+  }
 }

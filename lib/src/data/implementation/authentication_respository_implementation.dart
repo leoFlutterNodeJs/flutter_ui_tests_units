@@ -19,6 +19,6 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
   @override
   Future<bool> sendResetToken(String email) {
-    return null;
+    return _authenticationProvider.sendResetToken(email);
   }
 }

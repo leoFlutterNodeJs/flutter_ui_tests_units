@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:ui_tests_units/src/data/models/user.dart';
 import 'package:ui_tests_units/src/global_widgets/global_widgets.dart';
 import 'package:ui_tests_units/src/pages/login/login_controller.dart';
+import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/utils/dialogs.dart';
 
 class LoginForm extends StatelessWidget {
@@ -62,7 +63,8 @@ class LoginForm extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: CupertinoButton(
-              onPressed: () {},
+              onPressed: () =>
+                  Navigator.pushNamed(context, Routes.FORGOTPASSWORD),
               child: Text('Forget Password'),
             ),
           ),
