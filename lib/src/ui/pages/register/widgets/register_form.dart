@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:ui_tests_units/src/global_widgets/custom_form.dart';
 import 'package:ui_tests_units/src/global_widgets/input_text.dart';
 import 'package:ui_tests_units/src/global_widgets/rounded_button.dart';
-import 'package:ui_tests_units/src/pages/register/register_controller.dart';
 import 'package:ui_tests_units/src/utils/dialogs.dart';
+
+import '../register_controller.dart';
 
 class RegisterForm extends StatelessWidget {
   void _submit(BuildContext context) async {

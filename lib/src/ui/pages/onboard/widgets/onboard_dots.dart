@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_tests_units/src/pages/onboard/onboard_controller.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+
+import '../onboard_controller.dart';
 
 class OnboardDots extends StatelessWidget {
   @override

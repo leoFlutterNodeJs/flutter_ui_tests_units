@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_tests_units/src/pages/forgot_password/forgot_password_controller.dart';
 import 'package:ui_tests_units/src/utils/font_styles.dart';
 
 import './widgets/forgot_password_form.dart';
+import 'forgot_password_controller.dart';
 
 class ForgotPassword extends StatelessWidget {
   @override

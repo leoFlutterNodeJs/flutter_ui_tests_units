@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../pages/pages.dart';
+import '../ui/pages/pages.dart';
 import 'routes.dart';
 
 abstract class Pages {

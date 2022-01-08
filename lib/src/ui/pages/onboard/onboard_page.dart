@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_tests_units/src/pages/onboard/widgets/onboard_sliders.dart';
 
 import './onboard_controller.dart';
 import 'widgets/onboard_controls.dart';
+import 'widgets/onboard_sliders.dart';
 
 class OnboardPage extends StatelessWidget {
   @override

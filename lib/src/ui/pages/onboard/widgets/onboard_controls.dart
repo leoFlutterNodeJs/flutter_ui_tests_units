@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ui_tests_units/src/pages/onboard/onboard_controller.dart';
-import 'package:ui_tests_units/src/pages/onboard/widgets/onboard_dots.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 import 'package:provider/provider.dart';
+
+import '../onboard_controller.dart';
+import 'onboard_dots.dart';
 
 class OnboardControls extends StatelessWidget {
   @override

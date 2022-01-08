@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_tests_units/src/pages/login/login_controller.dart';
 import 'package:ui_tests_units/src/utils/font_styles.dart';
 import 'package:ui_tests_units/src/utils/social_buttons.dart';
 
+import 'login_controller.dart';
 import 'widgets/widgets.dart';
 
 class LoginPage extends StatelessWidget {

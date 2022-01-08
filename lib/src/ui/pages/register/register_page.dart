@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_tests_units/src/pages/register/widgets/register_form.dart';
 import 'package:ui_tests_units/src/utils/font_styles.dart';
 import './register_controller.dart';
+import 'widgets/register_form.dart';
 
 class RegisterPage extends StatelessWidget {
   @override
