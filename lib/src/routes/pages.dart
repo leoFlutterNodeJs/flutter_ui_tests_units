@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../pages/pages.dart';
+import '../ui/pages/pages.dart';
 import 'routes.dart';
 
 abstract class Pages {
@@ -10,5 +10,7 @@ abstract class Pages {
     Routes.WELCOME: (_) => WelcomePage(),
     Routes.LOGIN: (_) => LoginPage(),
     Routes.REGISTER: (_) => RegisterPage(),
+    Routes.FORGOT_PASSWORD: (_) => ForgotPassword(),
+    Routes.HOME: (_) => HomePage(),
   };
 }

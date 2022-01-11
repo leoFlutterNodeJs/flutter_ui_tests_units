@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-abstract class FontStyle {
+abstract class FontStyles {
   static final TextTheme = GoogleFonts.nunitoSansTextTheme();
 
   static final title = GoogleFonts.montserrat(

@@ -1,4 +1,4 @@
-import '../providers/authentication_provider.dart';
+import '../providers/remote/authentication_provider.dart';
 import '../repositories/authentication_repository.dart';
 import '../models/user.dart';
 
@@ -19,6 +19,6 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
   @override
   Future<bool> sendResetToken(String email) {
-    return null;
+    return _authenticationProvider.sendResetToken(email);
   }
 }
