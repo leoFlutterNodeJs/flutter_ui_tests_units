@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ui_tests_units/src/global_widgets/circle_button.dart';
+import 'package:ui_tests_units/src/ui/global_widgets/circle_button.dart';
 
 class SocialButtons extends StatelessWidget {
   @override

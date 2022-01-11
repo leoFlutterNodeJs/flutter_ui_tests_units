@@ -29,6 +29,8 @@ flutter:
   assets:
     - assets/svg/
     - assets/svg/icons/
+    - assets/svg/tab_icons/
+    - assets/json/
 
   # fonts:
   #   - family: Schyler

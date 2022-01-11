@@ -1,4 +1,4 @@
-import '../providers/authentication_provider.dart';
+import '../providers/remote/authentication_provider.dart';
 import '../repositories/authentication_repository.dart';
 import '../models/user.dart';
 

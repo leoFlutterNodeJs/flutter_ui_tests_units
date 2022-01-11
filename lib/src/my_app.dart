@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         colorScheme: ColorScheme.light(secondary: primaryColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: FontStyle.TextTheme,
+        textTheme: FontStyles.TextTheme,
         cupertinoOverrideTheme: CupertinoThemeData(
           primaryColor: primaryColor,
           textTheme: CupertinoTextThemeData(
-            textStyle: FontStyle.textButton,
+            textStyle: FontStyles.textButton,
             primaryColor: primaryColor,
           ),
         ),
