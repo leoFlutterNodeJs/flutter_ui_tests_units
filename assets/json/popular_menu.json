@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Feijoada",
+    "price": 9.99,
+    "rate": 4.5,
+    "preview": "https://image.freepik.com/fotos-gratis/variedade-plana-com-deliciosa-comida-brasileira_23-2148739179.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Tacos",
+    "price": 19.99,
+    "rate": 4.5,
+    "preview": "https://image.freepik.com/fotos-gratis/tortilha-com-falafel-e-salada-fresca-tacos-veganos-comida-vegetariana-saudavel_2829-14393.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Tacos veganos",
+    "price": 49.99,
+    "rate": 4.5,
+    "preview": "https://image.freepik.com/fotos-gratis/tortilha-com-falafel-e-salada-fresca-tacos-veganos-comida-vegetariana-saudavel_2829-14393.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Tortilhas vegetarianas",
+    "price": 29.99,
+    "rate": 4.5,
+    "preview": "https://image.freepik.com/fotos-gratis/tortilha-com-falafel-e-salada-fresca-tacos-veganos-comida-vegetariana-saudavel_2829-6193.jpg"
+  }
+]

@@ -39,7 +39,7 @@ class RegisterPage extends StatelessWidget {
                     children: [
                       SizedBox(height: 15),
                       Text("Sign Up",
-                          style: FontStyle.title.copyWith(fontSize: 22)),
+                          style: FontStyles.title.copyWith(fontSize: 22)),
                       SizedBox(height: 5),
                       Text(
                         "Fill the details & create your account",

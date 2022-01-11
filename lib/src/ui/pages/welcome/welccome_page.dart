@@ -21,7 +21,7 @@ class WelcomePage extends StatelessWidget {
             children: [
               Expanded(child: SvgPicture.asset('assets/svg/welcome.svg')),
               SizedBox(height: 10),
-              Text("Welcome", style: FontStyle.title),
+              Text("Welcome", style: FontStyles.title),
               SizedBox(height: 10),
               Text(
                 "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",

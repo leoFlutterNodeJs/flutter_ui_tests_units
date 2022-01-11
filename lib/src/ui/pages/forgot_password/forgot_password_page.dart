@@ -39,7 +39,7 @@ class ForgotPassword extends StatelessWidget {
                     child: Column(
                       children: [
                         Text('Forgot Password',
-                            style: FontStyle.title.copyWith(fontSize: 22)),
+                            style: FontStyles.title.copyWith(fontSize: 22)),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 8, horizontal: 30),

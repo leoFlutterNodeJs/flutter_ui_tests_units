@@ -25,7 +25,7 @@ class OnboardSlider extends StatelessWidget {
                   Text(
                     item.title,
                     textAlign: TextAlign.center,
-                    style: FontStyle.title,
+                    style: FontStyles.title,
                   ),
                   SizedBox(height: 15),
                   Text(

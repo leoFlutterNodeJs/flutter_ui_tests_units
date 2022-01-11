@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         'Welcome Back!',
-                        style: FontStyle.title.copyWith(fontSize: 22),
+                        style: FontStyles.title.copyWith(fontSize: 22),
                       ),
                       Expanded(child: SvgPicture.asset("assets/svg/login.svg")),
                       LoginForm(),
