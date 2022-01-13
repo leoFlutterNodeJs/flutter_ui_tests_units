@@ -32,6 +32,15 @@ class HomeController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void deleteFavorite(Dish dish) {
+    Map<int, Dish> copy = Map<int, Dish>.from(_favorites);
+    if (isFavorite(dish)) {
+      copy.remove(dish.id);
+      _favorites = copy;
+      notifyListeners();
+    }
+  }
+
   @override
   void dispose() {
     this.tabController?.dispose();
