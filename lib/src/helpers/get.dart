@@ -23,4 +23,9 @@ class Get {
     }
     return _data[key];
   }
+
+  void remove<T>({String tag}) {
+    final String key = _getKey(T, tag);
+    _data.remove(key);
+  }
 }
