@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/ui/pages/dish/widgets/dish_counter.dart';
+import 'package:ui_tests_units/src/ui/pages/home/home_controller.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 import 'package:ui_tests_units/src/utils/font_styles.dart';
 import './dish_controller.dart';
@@ -20,7 +22,9 @@ class DishPage extends StatelessWidget {
       create: (_) {
         final DishPageArguments args =
             ModalRoute.of(context).settings.arguments;
-        final controller = DishController(args);
+        final homeController = Get.i.find<HomeController>();
+        final isFavorite = homeController.isFavorite(args.dish);
+        final controller = DishController(args, isFavorite);
         _setStatusBar(SystemUiOverlayStyle.light);
         controller.onDispose = () => _setStatusBar(SystemUiOverlayStyle.dark);
         return controller;
@@ -46,6 +50,7 @@ class DishPage extends StatelessWidget {
                   builder: (_) {
                     final controller = Provider.of<DishController>(_);
                     final dish = controller.dish;
+                    final homeController = Get.i.find<HomeController>();
                     return Container(
                       width: double.infinity,
                       padding:
@@ -66,10 +71,16 @@ class DishPage extends StatelessWidget {
                               ),
                               CupertinoButton(
                                 padding: EdgeInsets.all(10),
-                                onPressed: () {},
+                                onPressed: () {
+                                  homeController.toogleFavorites(dish);
+                                  controller.toogleFavorite();
+                                },
                                 child: SvgPicture.asset(
                                   "assets/svg/icons/favorite.svg",
                                   width: 30,
+                                  color: controller.isFavorite
+                                      ? primaryColor
+                                      : Colors.grey,
                                 ),
                               ),
                             ],
