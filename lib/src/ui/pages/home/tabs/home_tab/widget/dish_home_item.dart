@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_tests_units/src/data/models/dish.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
+import 'package:ui_tests_units/src/ui/pages/dish/dish_controller.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 
 class DishHomeItem extends StatelessWidget {
@@ -14,7 +15,11 @@ class DishHomeItem extends StatelessWidget {
   final Dish item;
 
   void _goToDetail(BuildContext context) {
-    Navigator.pushNamed(context, Routes.DISH, arguments: this.item);
+    Navigator.pushNamed(
+      context,
+      Routes.DISH,
+      arguments: DishPageArguments(dish: this.item, tag: "$key-${item.id}"),
+    );
   }
 
   @override
@@ -28,12 +33,15 @@ class DishHomeItem extends StatelessWidget {
           onPressed: () => _goToDetail(context),
           child: Stack(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: CachedNetworkImage(
-                  width: double.infinity,
-                  imageUrl: item.preview,
-                  fit: BoxFit.cover,
+              Hero(
+                tag: "$key-${item.id}",
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: CachedNetworkImage(
+                    width: double.infinity,
+                    imageUrl: item.preview,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Positioned(

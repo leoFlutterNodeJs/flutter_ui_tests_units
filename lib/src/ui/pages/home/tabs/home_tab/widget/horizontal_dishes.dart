@@ -45,7 +45,10 @@ class HorizontalDishes extends StatelessWidget {
                 itemCount: dishes.length,
                 itemBuilder: (_, index) {
                   final item = dishes[index];
-                  return DishHomeItem(item: item);
+                  return DishHomeItem(
+                    key: UniqueKey(),
+                    item: item,
+                  );
                 }),
           ),
         ],
