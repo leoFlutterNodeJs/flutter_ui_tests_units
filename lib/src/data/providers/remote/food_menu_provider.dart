@@ -15,6 +15,7 @@ class FoodMenuProvider {
         id: item['id'],
         name: item['name'],
         preview: item['preview'],
+        description: item['description'],
         price: double.parse(item['price'].toString()),
         rate: double.parse(item['rate'].toString()),
       );

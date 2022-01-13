@@ -4,6 +4,7 @@
     "name": "Feijoada",
     "price": 9.99,
     "rate": 4.5,
+    "description": "In efficitur at enim sit amet varius. Duis lacus massa, finibus nec consectetur non, semper vel lacus. Donec turpis magna, imperdiet sed velit vitae, posuere mollis turpis.",
     "preview": "https://image.freepik.com/fotos-gratis/variedade-plana-com-deliciosa-comida-brasileira_23-2148739179.jpg"
   },
   {
@@ -11,6 +12,7 @@
     "name": "Tacos",
     "price": 19.99,
     "rate": 4.5,
+    "description": "In efficitur at enim sit amet varius. Duis lacus massa, finibus nec consectetur non, semper vel lacus. Donec turpis magna, imperdiet sed velit vitae, posuere mollis turpis.",
     "preview": "https://image.freepik.com/fotos-gratis/tortilha-com-falafel-e-salada-fresca-tacos-veganos-comida-vegetariana-saudavel_2829-14393.jpg"
   },
   {
@@ -18,6 +20,7 @@
     "name": "Tacos veganos",
     "price": 49.99,
     "rate": 4.5,
+    "description": "In efficitur at enim sit amet varius. Duis lacus massa, finibus nec consectetur non, semper vel lacus. Donec turpis magna, imperdiet sed velit vitae, posuere mollis turpis.",
     "preview": "https://image.freepik.com/fotos-gratis/tortilha-com-falafel-e-salada-fresca-tacos-veganos-comida-vegetariana-saudavel_2829-14393.jpg"
   },
   {
@@ -25,6 +28,7 @@
     "name": "Tortilhas vegetarianas",
     "price": 29.99,
     "rate": 4.5,
+    "description": "In efficitur at enim sit amet varius. Duis lacus massa, finibus nec consectetur non, semper vel lacus. Donec turpis magna, imperdiet sed velit vitae, posuere mollis turpis.",
     "preview": "https://image.freepik.com/fotos-gratis/tortilha-com-falafel-e-salada-fresca-tacos-veganos-comida-vegetariana-saudavel_2829-6193.jpg"
   }
 ]

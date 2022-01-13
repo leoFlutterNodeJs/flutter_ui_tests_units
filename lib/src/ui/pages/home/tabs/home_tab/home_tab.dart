@@ -50,7 +50,6 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
                     dishes: popularMenu,
                     title: "Popular Menu",
                     onViewAll: () {},
-                    widthPercent: 0.70,
                   );
                 }),
                 SizedBox(height: 25),
@@ -63,7 +62,6 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
                     dishes: popularMenu,
                     title: "Today",
                     onViewAll: () {},
-                    widthPercent: 0.40,
                   );
                 }),
               ],
