@@ -9,11 +9,18 @@ class ProfileTab extends StatelessWidget {
     return SafeArea(
       child: ListView(
         children: [
-          CachedNetworkImage(
-              width: double.infinity,
-              height: 290,
-              imageUrl:
-                  "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"),
+          SizedBox(height: 15),
+          Align(
+            child: ClipOval(
+              child: CachedNetworkImage(
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                  imageUrl:
+                      "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"),
+            ),
+          ),
+          SizedBox(height: 15),
           CupertinoFormSection.insetGrouped(
             header: Text('User Information'),
             margin: EdgeInsets.all(10).copyWith(top: 0),
