@@ -13,5 +13,6 @@ abstract class Pages {
     Routes.FORGOT_PASSWORD: (_) => ForgotPassword(),
     Routes.HOME: (_) => HomePage(),
     Routes.DISH: (_) => DishPage(),
+    Routes.CART: (_) => CartPage(),
   };
 }
