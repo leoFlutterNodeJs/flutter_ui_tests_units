@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ui_tests_units/src/data/models/dish.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
+import 'package:ui_tests_units/src/ui/global_controllers/cart_controller.dart';
 import 'package:ui_tests_units/src/ui/pages/dish/dish_controller.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 
@@ -15,10 +17,14 @@ class DishHomeItem extends StatelessWidget {
   final Dish item;
 
   void _goToDetail(BuildContext context) {
+    final int counter =
+        context.read<CartController>().getDishCounter(this.item);
+
+    final Dish dish = item.updateCounter(counter);
     Navigator.pushNamed(
       context,
       Routes.DISH,
-      arguments: DishPageArguments(dish: this.item, tag: "$key-${item.id}"),
+      arguments: DishPageArguments(dish: dish, tag: "$key-${item.id}"),
     );
   }
 

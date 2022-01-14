@@ -10,7 +10,6 @@ class HomeBottomBar extends StatelessWidget {
     _BottomBarItem(icon: 'assets/svg/icons/home.svg', label: "Home"),
     _BottomBarItem(icon: 'assets/svg/icons/favorite.svg', label: "Favorites"),
     _BottomBarItem(icon: 'assets/svg/icons/bell.svg', label: "Notificatons"),
-    _BottomBarItem(icon: 'assets/svg/icons/cart.svg', label: "Cart"),
     _BottomBarItem(icon: 'assets/svg/icons/avatar.svg', label: "Profile"),
   ];
   @override

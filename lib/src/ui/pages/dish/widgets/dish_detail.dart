@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_tests_units/src/helpers/get.dart';
-import 'package:ui_tests_units/src/ui/pages/dish/widgets/dish_counter.dart';
+import 'package:ui_tests_units/src/ui/global_widgets/dish_counter.dart';
 import 'package:ui_tests_units/src/ui/pages/home/home_controller.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 import 'package:ui_tests_units/src/utils/font_styles.dart';
@@ -62,6 +62,7 @@ class DishDetail extends StatelessWidget {
           ),
           SizedBox(height: 25),
           DishCounter(
+            initialValue: controller.dish.counter,
             onChanged: controller.onCounterChanged,
           ),
           SizedBox(height: 25),
