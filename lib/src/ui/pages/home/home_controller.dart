@@ -7,12 +7,13 @@ class HomeController extends ChangeNotifier {
 
   Map<int, Dish> _favorites = {};
   Map<int, Dish> get favorites => _favorites;
+
   bool isFavorite(Dish dish) => _favorites.containsKey(dish.id);
 
   void Function() onDispose;
 
   final TabController tabController =
-      TabController(length: 5, vsync: NavigatorState());
+      TabController(length: 4, vsync: NavigatorState());
 
   void afterFirstLayout() {
     this.tabController.addListener(() {

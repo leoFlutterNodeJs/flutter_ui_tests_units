@@ -12,20 +12,18 @@ class DishPageArguments {
 }
 
 class DishController extends ChangeNotifier {
-  final Dish dish;
+  Dish dish;
   final String tag;
   VoidCallback onDispose;
   DishController(DishPageArguments arguments, this._isFavorite)
       : this.dish = arguments.dish,
         this.tag = arguments.tag;
 
-  int _counter = 0;
-  int get counter => _counter;
   bool _isFavorite;
   bool get isFavorite => _isFavorite;
 
   void onCounterChanged(int counter) {
-    _counter = counter;
+    this.dish = this.dish.updateCounter(counter);
   }
 
   void toogleFavorite() {

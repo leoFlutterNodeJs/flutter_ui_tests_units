@@ -4,6 +4,7 @@ import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/ui/pages/home/home_controller.dart';
 import './tabs/tabs.dart';
 import './widgets/home_bottom_bar.dart';
+import 'widgets/cart_button.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -27,12 +28,12 @@ class HomePage extends StatelessWidget {
               HomeTab(),
               FavoritesTab(),
               NotificationsTab(),
-              CartTab(),
               ProfileTab(),
             ],
           ),
         ),
         bottomNavigationBar: HomeBottomBar(),
+        floatingActionButton: CartButton(),
       );
     });
   }
