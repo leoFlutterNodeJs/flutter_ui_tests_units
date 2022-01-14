@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
@@ -8,6 +9,11 @@ class ProfileTab extends StatelessWidget {
     return SafeArea(
       child: ListView(
         children: [
+          CachedNetworkImage(
+              width: double.infinity,
+              height: 290,
+              imageUrl:
+                  "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"),
           CupertinoFormSection.insetGrouped(
             header: Text('User Information'),
             margin: EdgeInsets.all(10).copyWith(top: 0),
