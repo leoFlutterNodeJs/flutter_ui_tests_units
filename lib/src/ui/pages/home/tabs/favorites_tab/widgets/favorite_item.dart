@@ -8,10 +8,10 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class FavoriteItem extends StatelessWidget {
   final Dish dish;
-  const FavoriteItem({Key key, @required this.dish}) : super(key: key);
+  const FavoriteItem({Key? key, required this.dish}) : super(key: key);
 
   void _deleteItem() {
-    final homeController = Get.i.find<HomeController>();
+    final homeController = Get.i.find<HomeController>()!;
     homeController.deleteFavorite(dish);
   }
 
@@ -51,7 +51,7 @@ class FavoriteItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
-                  imageUrl: dish.preview,
+                  imageUrl: dish.preview!,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -62,7 +62,7 @@ class FavoriteItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(dish.name),
+                  Text(dish.name!),
                   SizedBox(height: 5),
                   Text("${dish.price}"),
                   SizedBox(height: 5),

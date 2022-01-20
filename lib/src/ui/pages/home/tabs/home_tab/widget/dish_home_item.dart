@@ -10,8 +10,8 @@ import 'package:ui_tests_units/src/utils/colors.dart';
 
 class DishHomeItem extends StatelessWidget {
   const DishHomeItem({
-    Key key,
-    @required this.item,
+    Key? key,
+    required this.item,
   }) : super(key: key);
 
   final Dish item;
@@ -45,7 +45,7 @@ class DishHomeItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: CachedNetworkImage(
                     width: double.infinity,
-                    imageUrl: item.preview,
+                    imageUrl: item.preview!,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -70,7 +70,7 @@ class DishHomeItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        item.name,
+                        item.name!,
                         style: TextStyle(color: Colors.black),
                       ),
                       SizedBox(height: 2),

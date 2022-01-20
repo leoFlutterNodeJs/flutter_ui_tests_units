@@ -9,7 +9,7 @@ class DishCounter extends StatefulWidget {
   final DishCounterSize size;
   final int initialValue;
   DishCounter({
-    @required this.onChanged,
+    required this.onChanged,
     this.size = DishCounterSize.normal,
     this.initialValue = 0,
   });

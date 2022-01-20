@@ -11,7 +11,7 @@ class OnboardDots extends StatelessWidget {
     final controller = Provider.of<OnboardController>(context);
     return DotsIndicator(
       dotsCount: controller.items.length,
-      position: controller.currentPage,
+      position: controller.currentPage!,
       decorator: DotsDecorator(
         size: const Size.square(9.0),
         activeSize: const Size(11.0, 9.0),

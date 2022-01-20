@@ -7,7 +7,7 @@ import '../dish_controller.dart';
 
 class DishHeader extends StatelessWidget {
   const DishHeader({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class DishHeader extends StatelessWidget {
                 return Hero(
                   tag: "${controller.tag}",
                   child: CachedNetworkImage(
-                    imageUrl: controller.dish.preview,
+                    imageUrl: controller.dish.preview!,
                     fit: BoxFit.cover,
                   ),
                 );

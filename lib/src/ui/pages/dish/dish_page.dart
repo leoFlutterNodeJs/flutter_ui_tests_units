@@ -20,8 +20,8 @@ class DishPage extends StatelessWidget {
     return ChangeNotifierProvider<DishController>(
       create: (_) {
         final DishPageArguments args =
-            ModalRoute.of(context).settings.arguments;
-        final homeController = Get.i.find<HomeController>();
+            ModalRoute.of(context)!.settings.arguments as DishPageArguments;
+        final homeController = Get.i.find<HomeController>()!;
         final isFavorite = homeController.isFavorite(args.dish);
         final controller = DishController(args, isFavorite);
         _setStatusBar(SystemUiOverlayStyle.light);

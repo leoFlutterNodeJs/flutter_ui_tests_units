@@ -5,7 +5,7 @@ import 'package:ui_tests_units/src/ui/pages/cart/widgets/cart_item.dart';
 import 'package:ui_tests_units/src/ui/pages/cart/widgets/checkout_preview.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key key}) : super(key: key);
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

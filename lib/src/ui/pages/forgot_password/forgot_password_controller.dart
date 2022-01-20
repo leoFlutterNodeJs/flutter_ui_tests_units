@@ -7,7 +7,7 @@ class ForgotPasswordController extends ChangeNotifier {
 
   String get email => _email;
 
-  final AuthenticationRepository _repository =
+  final AuthenticationRepository? _repository =
       Get.i.find<AuthenticationRepository>();
 
   void onEmailChanged(String text) {
@@ -15,6 +15,6 @@ class ForgotPasswordController extends ChangeNotifier {
   }
 
   Future<bool> submit() async {
-    return _repository.sendResetToken(_email);
+    return _repository!.sendResetToken(_email);
   }
 }

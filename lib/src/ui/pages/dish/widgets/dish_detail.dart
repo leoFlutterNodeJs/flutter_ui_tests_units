@@ -12,7 +12,7 @@ import '../dish_controller.dart';
 
 class DishDetail extends StatelessWidget {
   void _toogleFavorite(BuildContext context) {
-    final homeController = Get.i.find<HomeController>();
+    final homeController = Get.i.find<HomeController>()!;
     final controller = context.read<DishController>();
     homeController.toogleFavorites(controller.dish);
     controller.toogleFavorite();
@@ -44,7 +44,7 @@ class DishDetail extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(dish.name, style: FontStyles.title),
+                    Text(dish.name!, style: FontStyles.title),
                     Text("R\$ ${dish.price}"),
                   ],
                 ),
@@ -68,7 +68,7 @@ class DishDetail extends StatelessWidget {
           SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(dish.description),
+            child: Text(dish.description!),
           ),
         ],
       ),

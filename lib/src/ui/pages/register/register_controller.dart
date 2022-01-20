@@ -7,7 +7,7 @@ import 'package:ui_tests_units/src/ui/global_widgets/custom_form.dart';
 class RegisterController extends ChangeNotifier {
   String _name = "", _lastName = "", _email = "";
   GlobalKey<CustomFormState> formKey = GlobalKey();
-  final AuthenticationRepository _repository =
+  final AuthenticationRepository? _repository =
       Get.i.find<AuthenticationRepository>();
 
   void onNameChanged(String text) => _name = text;
@@ -15,7 +15,7 @@ class RegisterController extends ChangeNotifier {
   void onEmailChanged(String text) => _email = text;
 
   Future<bool> submit() async {
-    _repository.register(User(
+    _repository!.register(User(
         id: DateTime.now().microsecondsSinceEpoch.toString(),
         name: _name,
         lastName: _lastName,

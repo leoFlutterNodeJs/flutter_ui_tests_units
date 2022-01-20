@@ -6,7 +6,7 @@ import 'package:ui_tests_units/src/ui/pages/dish/dish_controller.dart';
 import 'package:ui_tests_units/src/utils/colors.dart';
 
 class AddToCart extends StatelessWidget {
-  const AddToCart({Key key}) : super(key: key);
+  const AddToCart({Key? key}) : super(key: key);
 
   void _addToCart(BuildContext context) {
     final cartController = context.read<CartController>();

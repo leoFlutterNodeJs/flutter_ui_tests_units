@@ -5,12 +5,12 @@ class HomeController extends ChangeNotifier {
   int _currentPage = 0;
   int get currentPage => _currentPage;
 
-  Map<int, Dish> _favorites = {};
-  Map<int, Dish> get favorites => _favorites;
+  Map<int?, Dish> _favorites = {};
+  Map<int?, Dish> get favorites => _favorites;
 
   bool isFavorite(Dish dish) => _favorites.containsKey(dish.id);
 
-  void Function() onDispose;
+  void Function()? onDispose;
 
   final TabController tabController =
       TabController(length: 4, vsync: NavigatorState());
@@ -23,7 +23,7 @@ class HomeController extends ChangeNotifier {
   }
 
   void toogleFavorites(Dish dish) {
-    Map<int, Dish> copy = Map<int, Dish>.from(_favorites);
+    Map<int?, Dish> copy = Map<int?, Dish>.from(_favorites);
     if (isFavorite(dish)) {
       copy.remove(dish.id);
     } else {
@@ -44,8 +44,8 @@ class HomeController extends ChangeNotifier {
 
   @override
   void dispose() {
-    this.tabController?.dispose();
-    if (onDispose != null) this.onDispose();
+    this.tabController.dispose();
+    if (onDispose != null) this.onDispose!();
     super.dispose();
   }
 }

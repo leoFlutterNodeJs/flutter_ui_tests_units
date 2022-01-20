@@ -1,7 +1,7 @@
 import 'package:ui_tests_units/src/data/models/user.dart';
 
 class AuthenticationProvider {
-  Future<User> login(String email, String password) async {
+  Future<User?> login(String email, String password) async {
     await Future.delayed(Duration(seconds: 3));
     if (email == "leocardosodev@gmail.com" && password == "123456") {
       return User(

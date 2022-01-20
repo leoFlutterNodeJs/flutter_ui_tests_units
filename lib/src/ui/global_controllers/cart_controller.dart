@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:ui_tests_units/src/data/models/dish.dart';
 
 class CartController extends ChangeNotifier {
-  Map<int, Dish> _cart = {};
-  Map<int, Dish> get cart => _cart;
+  Map<int?, Dish> _cart = {};
+  Map<int?, Dish> get cart => _cart;
 
   bool isInCart(Dish dish) {
     return _cart.containsKey(dish.id);
@@ -13,13 +13,13 @@ class CartController extends ChangeNotifier {
 
   int getDishCounter(Dish dish) {
     if (isInCart(dish)) {
-      return _cart[dish.id].counter;
+      return _cart[dish.id]!.counter;
     }
     return 0;
   }
 
   void addToCart(Dish dish, {bool update = true}) {
-    Map<int, Dish> copy = Map<int, Dish>.from(_cart);
+    Map<int?, Dish> copy = Map<int?, Dish>.from(_cart);
     copy[dish.id] = dish;
     _cart = copy;
     if (update) {
