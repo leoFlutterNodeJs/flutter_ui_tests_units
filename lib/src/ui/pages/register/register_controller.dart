@@ -16,7 +16,7 @@ class RegisterController extends ChangeNotifier {
 
   Future<bool> submit() async {
     _repository.register(User(
-        id: null,
+        id: DateTime.now().microsecondsSinceEpoch.toString(),
         name: _name,
         lastName: _lastName,
         email: _email,

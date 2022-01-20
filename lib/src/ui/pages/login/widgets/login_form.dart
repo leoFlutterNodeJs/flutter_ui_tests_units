@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_tests_units/src/data/models/user.dart';
+import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/ui/global_widgets/global_widgets.dart';
 import 'package:ui_tests_units/src/utils/dialogs.dart';
@@ -22,6 +23,7 @@ class LoginForm extends StatelessWidget {
       Dialogs.alert(context,
           title: "ERROR", description: "Invalid email or password");
     } else {
+      Get.i.put<User>(user);
       Navigator.pushNamedAndRemoveUntil(context, Routes.HOME, (route) => false);
     }
   }
