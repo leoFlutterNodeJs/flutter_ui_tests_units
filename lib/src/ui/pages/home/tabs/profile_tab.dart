@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_tests_units/src/data/models/user.dart';
+import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
 
 class ProfileTab extends StatelessWidget {
+  final user = Get.i.find<User>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,10 +32,10 @@ class ProfileTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             children: [
-              RowProfile(label: "ID", value: "1"),
-              RowProfile(label: "Nome", value: "Leonardo Silva"),
-              RowProfile(label: "E-mail", value: "leocardosodev@gmail.com"),
-              RowProfile(label: "Nascimento", value: "09/01/1982"),
+              RowProfile(label: "ID", value: "${user.id}"),
+              RowProfile(label: "Nome", value: "${user.name} ${user.lastName}"),
+              RowProfile(label: "E-mail", value: "${user.email}"),
+              RowProfile(label: "Nascimento", value: "${user.birthday}"),
             ],
           ),
           CupertinoFormSection.insetGrouped(
