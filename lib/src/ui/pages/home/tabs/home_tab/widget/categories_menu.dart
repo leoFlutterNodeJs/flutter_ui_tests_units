@@ -25,8 +25,8 @@ class CategoriesMenu extends StatelessWidget {
 
 class CategoryButton extends StatelessWidget {
   const CategoryButton({
-    Key key,
-    @required this.category,
+    Key? key,
+    required this.category,
   }) : super(key: key);
 
   final Category category;

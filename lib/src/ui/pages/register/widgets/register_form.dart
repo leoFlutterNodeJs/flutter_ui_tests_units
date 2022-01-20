@@ -9,7 +9,7 @@ import '../register_controller.dart';
 class RegisterForm extends StatelessWidget {
   void _submit(BuildContext context) async {
     final controller = context.read<RegisterController>();
-    final isFormOk = controller.formKey.currentState.validate();
+    final isFormOk = controller.formKey.currentState!.validate();
 
     if (isFormOk) {
       ProgressDialog.show(context);

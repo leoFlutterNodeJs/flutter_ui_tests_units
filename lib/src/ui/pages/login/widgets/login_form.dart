@@ -11,13 +11,13 @@ import '../login_controller.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   void _submit(BuildContext context) async {
     final controller = context.read<LoginController>();
     ProgressDialog.show(context);
-    final User user = await controller.submit();
+    final User? user = await controller.submit();
     Navigator.pop(context);
     if (user == null) {
       Dialogs.alert(context,

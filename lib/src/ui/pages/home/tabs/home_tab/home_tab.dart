@@ -18,7 +18,7 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
     return ChangeNotifierProvider(
       create: (_) {
         final controller = HomeTabController();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           controller.afterFirstLayout();
         });
         return controller;

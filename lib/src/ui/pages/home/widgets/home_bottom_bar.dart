@@ -37,18 +37,18 @@ class HomeBottomBar extends StatelessWidget {
 
 class BottomBarTab extends StatelessWidget {
   final List<_BottomBarItem> items;
-  final bool isActive;
+  final bool? isActive;
   final int index;
 
   BottomBarTab({
-    @required List<_BottomBarItem> this.items,
-    @required this.index,
+    required List<_BottomBarItem> this.items,
+    required this.index,
     this.isActive,
   });
 
   @override
   Widget build(BuildContext context) {
-    final Color color = isActive ? primaryColor : Colors.black;
+    final Color color = isActive! ? primaryColor : Colors.black;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Tab(
@@ -64,5 +64,5 @@ class BottomBarTab extends StatelessWidget {
 
 class _BottomBarItem {
   final String icon, label;
-  _BottomBarItem({@required this.icon, @required this.label});
+  _BottomBarItem({required this.icon, required this.label});
 }

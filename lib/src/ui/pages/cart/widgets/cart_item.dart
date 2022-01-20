@@ -8,7 +8,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CartItem extends StatelessWidget {
   final Dish dish;
-  const CartItem({Key key, @required this.dish}) : super(key: key);
+  const CartItem({Key? key, required this.dish}) : super(key: key);
 
   void _deleteItem(BuildContext context) {
     final cartController = context.read<CartController>();
@@ -57,7 +57,7 @@ class CartItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
-                  imageUrl: dish.preview,
+                  imageUrl: dish.preview!,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,7 +68,7 @@ class CartItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(dish.name),
+                  Text(dish.name!),
                   SizedBox(height: 5),
                   Container(
                     child: Row(

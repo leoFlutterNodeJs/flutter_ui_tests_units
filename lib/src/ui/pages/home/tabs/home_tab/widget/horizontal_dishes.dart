@@ -9,10 +9,10 @@ class HorizontalDishes extends StatelessWidget {
   final String title;
   final VoidCallback onViewAll;
   const HorizontalDishes({
-    Key key,
-    @required this.dishes,
-    @required this.title,
-    @required this.onViewAll,
+    Key? key,
+    required this.dishes,
+    required this.title,
+    required this.onViewAll,
   }) : super(key: key);
 
   @override

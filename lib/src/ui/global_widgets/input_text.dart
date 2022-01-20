@@ -7,15 +7,15 @@ import 'custom_form.dart';
 class InputText extends StatefulWidget {
   final Widget prefixIcon;
   final void Function(String) onChanged;
-  final void Function(String) onSubmitted;
-  final String Function(String) validator;
+  final void Function(String)? onSubmitted;
+  final String? Function(String)? validator;
   final bool obscureText;
-  final TextInputAction textInputAction;
+  final TextInputAction? textInputAction;
   final TextInputType textInputType;
-  final String labelText;
+  final String? labelText;
   InputText(
-      {@required this.prefixIcon,
-      @required this.onChanged,
+      {required this.prefixIcon,
+      required this.onChanged,
       this.validator,
       this.onSubmitted,
       this.textInputAction,
@@ -28,18 +28,18 @@ class InputText extends StatefulWidget {
 }
 
 class InputTextState extends State<InputText> {
-  String _errorText = '';
+  String? _errorText = '';
   bool _isObscure = false;
-  CustomFormState _formState;
+  CustomFormState? _formState;
 
-  String get errorText => _errorText;
+  String? get errorText => _errorText;
 
   @override
   void initState() {
     super.initState();
     _isObscure = widget.obscureText;
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _formState = CustomForm.of(context);
       _formState?.register(this);
     });
@@ -53,13 +53,10 @@ class InputTextState extends State<InputText> {
 
   void _validate(String text) {
     if (widget.validator != null) {
-      _errorText = widget.validator(text);
+      _errorText = widget.validator!(text);
       setState(() {});
     }
-
-    if (widget.onChanged != null) {
-      widget.onChanged(text);
-    }
+    widget.onChanged(text);
   }
 
   void _onVisibleChanged() {

@@ -6,7 +6,7 @@ import 'package:ui_tests_units/src/utils/colors.dart';
 import 'package:ui_tests_units/src/utils/font_styles.dart';
 
 class CheckoutPreview extends StatelessWidget {
-  const CheckoutPreview({Key key}) : super(key: key);
+  const CheckoutPreview({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

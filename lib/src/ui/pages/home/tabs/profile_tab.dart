@@ -32,10 +32,10 @@ class ProfileTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             children: [
-              RowProfile(label: "ID", value: "${user.id}"),
-              RowProfile(label: "Nome", value: "${user.name} ${user.lastName}"),
-              RowProfile(label: "E-mail", value: "${user.email}"),
-              RowProfile(label: "Nascimento", value: "${user.birthday}"),
+              RowProfile(label: "ID", value: "${user!.id}"),
+              RowProfile(label: "Nome", value: "${user!.name} ${user!.lastName}"),
+              RowProfile(label: "E-mail", value: "${user!.email}"),
+              RowProfile(label: "Nascimento", value: "${user!.birthday}"),
             ],
           ),
           CupertinoFormSection.insetGrouped(
@@ -77,17 +77,17 @@ class ProfileTab extends StatelessWidget {
 }
 
 class RowProfile extends StatelessWidget {
-  final String label, value;
+  final String? label, value;
   RowProfile({this.label, this.value});
 
   @override
   Widget build(BuildContext context) {
     return CupertinoFormRow(
       prefix: Text(
-        label,
+        label!,
         style: TextStyle(color: Colors.black),
       ),
-      child: Text(value),
+      child: Text(value!),
     );
   }
 }

@@ -7,7 +7,7 @@ import 'package:ui_tests_units/src/ui/global_controllers/cart_controller.dart';
 
 class CartButton extends StatelessWidget {
   const CartButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -15,7 +15,7 @@ class CartButton extends StatelessWidget {
     final hasItem = context.select<CartController, bool>((_) => _.hasItem);
     if (!hasItem) return Container();
 
-    final cart = context.select<CartController, Map<int, Dish>>((_) => _.cart);
+    final cart = context.select<CartController, Map<int?, Dish>>((_) => _.cart);
     return Stack(
       children: [
         FloatingActionButton(
