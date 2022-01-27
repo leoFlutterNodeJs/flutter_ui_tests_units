@@ -10,7 +10,7 @@ class FoodMenuProvider {
     final List list = jsonDecode(jsonAsString);
     List<Dish> dishes = [];
 
-    for (final Map<String, dynamic> item in list as Iterable<Map<String, dynamic>>) {
+    for (final Map<String, dynamic> item in list) {
       final dish = Dish(
         id: item['id'],
         name: item['name'],
