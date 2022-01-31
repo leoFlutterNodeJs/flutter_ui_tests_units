@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:ui_tests_units/src/data/repositories/preferences_repository.dart';
+import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/utils/social_buttons.dart';
 
@@ -8,6 +10,10 @@ import '../../../../src/utils/font_styles.dart';
 import '../../global_widgets/global_widgets.dart';
 
 class WelcomePage extends StatelessWidget {
+  Future<void> _setReady() {
+    return Get.i.find<PreferencesRepository>()!.setOnBoardAndWelcomeReady(true);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,15 +40,19 @@ class WelcomePage extends StatelessWidget {
                   Expanded(
                       child: RoundedButton(
                     label: 'Login',
-                    onPressed: () =>
-                        Navigator.pushReplacementNamed(context, Routes.LOGIN),
+                    onPressed: () async {
+                      await _setReady();
+                      Navigator.pushReplacementNamed(context, Routes.LOGIN);
+                    },
                   )),
                   SizedBox(width: 10),
                   Expanded(
                     child: RoundedButton(
                       label: 'Sign Up',
-                      onPressed: () =>
-                          Navigator.pushNamed(context, Routes.REGISTER),
+                      onPressed: () async {
+                        await _setReady();
+                        Navigator.pushNamed(context, Routes.REGISTER);
+                      },
                       textColor: Colors.black,
                       backgroundColor: Colors.white,
                       borderColor: Colors.black,

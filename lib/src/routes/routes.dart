@@ -7,4 +7,5 @@ abstract class Routes {
   static const HOME = '/home';
   static const DISH = '/dish';
   static const CART = '/cart';
+  static const SPLASH = '/splash';
 }

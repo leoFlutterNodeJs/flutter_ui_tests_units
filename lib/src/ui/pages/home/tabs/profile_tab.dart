@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_tests_units/src/data/models/user.dart';
+import 'package:ui_tests_units/src/data/repositories/preferences_repository.dart';
 import 'package:ui_tests_units/src/data/repositories/repositories.dart';
 import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
@@ -13,6 +14,11 @@ class ProfileTab extends StatelessWidget {
   void _signOut(BuildContext context) async {
     final isOk = await Dialogs.confirm(context, title: "Action Required");
     if (isOk!) {
+      Get.i.remove<User>();
+      await Get.i.find<AuthenticationRepository>()?.removeToken();
+      await Get.i
+          .find<PreferencesRepository>()
+          ?.setOnBoardAndWelcomeReady(false);
       await Get.i.find<WebSocketRepository>()!.disconnect();
       context.read<NotificationsController>().clear();
       Navigator.pushNamedAndRemoveUntil(

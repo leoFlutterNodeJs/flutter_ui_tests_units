@@ -6,3 +6,4 @@ export './forgot_password/forgot_password_page.dart';
 export './home/home_page.dart';
 export './dish/dish_page.dart';
 export 'cart/cart_page.dart';
+export './splash/splash_page.dart';
