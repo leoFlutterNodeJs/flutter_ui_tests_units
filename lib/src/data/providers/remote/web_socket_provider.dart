@@ -4,10 +4,6 @@ import 'package:faker/faker.dart';
 import 'package:ui_tests_units/src/data/models/app_notifications.dart';
 
 class WebSocketProvider {
-  WebSocketProvider() {
-    _init();
-  }
-
   StreamController<AppNotifications> _controller = StreamController.broadcast();
   Stream<AppNotifications> get onNotification => _controller.stream;
   Timer? _timer;
@@ -30,12 +26,16 @@ class WebSocketProvider {
   }
 
   Future<void> connect(String uri) async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 2));
+    _init();
   }
 
   Future<void> disconnect() async {
     _timer?.cancel();
-    await _controller.close();
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
+  }
+
+  Future<void> dispose() {
+    return _controller.close();
   }
 }

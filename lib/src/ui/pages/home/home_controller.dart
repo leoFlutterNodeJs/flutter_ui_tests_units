@@ -3,11 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ui_tests_units/src/data/models/bottom_item_bar.dart';
 import 'package:ui_tests_units/src/data/models/dish.dart';
+import 'package:ui_tests_units/src/data/repositories/repositories.dart';
+import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/ui/global_controllers/global_controllers.dart';
 
 class HomeController extends ChangeNotifier {
   final NotificationsController notificationsController;
   HomeController(this.notificationsController);
+
+  final _webSocketRepository = Get.i.find<WebSocketRepository>();
+
   int _currentPage = 0;
   int get currentPage => _currentPage;
 
@@ -24,6 +29,7 @@ class HomeController extends ChangeNotifier {
   StreamSubscription? _notificationSubscription;
 
   void afterFirstLayout() {
+    _webSocketRepository!.connect("https://websocket.demo");
     _notificationSubscription = this
         .notificationsController
         .onNotificationsChanged
@@ -63,10 +69,7 @@ class HomeController extends ChangeNotifier {
   List<BottomBarItem> _items = [
     BottomBarItem(icon: 'assets/svg/icons/home.svg', label: "Home"),
     BottomBarItem(icon: 'assets/svg/icons/favorite.svg', label: "Favorites"),
-    BottomBarItem(
-        icon: 'assets/svg/icons/bell.svg',
-        label: "Notificatons",
-        badgeCount: 4),
+    BottomBarItem(icon: 'assets/svg/icons/bell.svg', label: "Notificatons"),
     BottomBarItem(icon: 'assets/svg/icons/avatar.svg', label: "Profile"),
   ];
 
