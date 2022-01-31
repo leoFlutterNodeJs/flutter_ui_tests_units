@@ -47,12 +47,10 @@ class BottomBarTab extends StatelessWidget {
     final Color color = isActive! ? primaryColor : Colors.black;
     final content = Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
-      child: Tab(
-        icon: SvgPicture.asset(
-          items[index].icon,
-          width: 25,
-          color: color,
-        ),
+      child: SvgPicture.asset(
+        items[index].icon,
+        width: 25,
+        color: color,
       ),
     );
     return Tab(

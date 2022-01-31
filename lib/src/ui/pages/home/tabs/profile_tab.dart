@@ -2,13 +2,27 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_tests_units/src/data/models/user.dart';
+import 'package:ui_tests_units/src/data/repositories/repositories.dart';
 import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
+import 'package:ui_tests_units/src/ui/global_controllers/global_controllers.dart';
+import 'package:ui_tests_units/src/utils/dialogs.dart';
+import 'package:provider/provider.dart';
 
 class ProfileTab extends StatelessWidget {
-  final user = Get.i.find<User>();
+  void _signOut(BuildContext context) async {
+    final isOk = await Dialogs.confirm(context, title: "Action Required");
+    if (isOk!) {
+      await Get.i.find<WebSocketRepository>()!.disconnect();
+      context.read<NotificationsController>().clear();
+      Navigator.pushNamedAndRemoveUntil(
+          context, Routes.LOGIN, (route) => false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = Get.i.find<User>();
     return SafeArea(
       child: ListView(
         children: [
@@ -33,9 +47,9 @@ class ProfileTab extends StatelessWidget {
             ),
             children: [
               RowProfile(label: "ID", value: "${user!.id}"),
-              RowProfile(label: "Nome", value: "${user!.name} ${user!.lastName}"),
-              RowProfile(label: "E-mail", value: "${user!.email}"),
-              RowProfile(label: "Nascimento", value: "${user!.birthday}"),
+              RowProfile(label: "Nome", value: "${user.name} ${user.lastName}"),
+              RowProfile(label: "E-mail", value: "${user.email}"),
+              RowProfile(label: "Nascimento", value: "${user.birthday}"),
             ],
           ),
           CupertinoFormSection.insetGrouped(
@@ -64,8 +78,7 @@ class ProfileTab extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   child: CupertinoButton(
-                    onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                        context, Routes.LOGIN, (route) => false),
+                    onPressed: () => _signOut(context),
                     child: Text("Log out"),
                   )),
             ],
