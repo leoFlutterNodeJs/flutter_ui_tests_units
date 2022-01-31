@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_tests_units/src/helpers/get.dart';
+import 'package:ui_tests_units/src/ui/global_controllers/global_controllers.dart';
 import 'package:ui_tests_units/src/ui/pages/home/home_controller.dart';
 import './tabs/tabs.dart';
 import './widgets/home_bottom_bar.dart';
@@ -10,7 +11,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(create: (_) {
-      final controller = HomeController();
+      final controller =
+          HomeController(context.read<NotificationsController>());
       WidgetsBinding.instance!.addPostFrameCallback((_) {
         controller.afterFirstLayout();
       });

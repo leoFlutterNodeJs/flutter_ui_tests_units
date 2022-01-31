@@ -1,7 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:ui_tests_units/src/data/models/bottom_item_bar.dart';
 import 'package:ui_tests_units/src/data/models/dish.dart';
+import 'package:ui_tests_units/src/ui/global_controllers/global_controllers.dart';
 
 class HomeController extends ChangeNotifier {
+  final NotificationsController notificationsController;
+  HomeController(this.notificationsController);
   int _currentPage = 0;
   int get currentPage => _currentPage;
 
@@ -15,7 +21,19 @@ class HomeController extends ChangeNotifier {
   final TabController tabController =
       TabController(length: 4, vsync: NavigatorState());
 
+  StreamSubscription? _notificationSubscription;
+
   void afterFirstLayout() {
+    _notificationSubscription = this
+        .notificationsController
+        .onNotificationsChanged
+        .listen((notifications) {
+      final int count = notifications.length;
+      List<BottomBarItem> copy = [..._items];
+      copy[2] = copy[2].copyWith(badgeCount: count);
+      _items = copy;
+      notifyListeners();
+    });
     this.tabController.addListener(() {
       _currentPage = tabController.index;
       notifyListeners();
@@ -42,8 +60,21 @@ class HomeController extends ChangeNotifier {
     }
   }
 
+  List<BottomBarItem> _items = [
+    BottomBarItem(icon: 'assets/svg/icons/home.svg', label: "Home"),
+    BottomBarItem(icon: 'assets/svg/icons/favorite.svg', label: "Favorites"),
+    BottomBarItem(
+        icon: 'assets/svg/icons/bell.svg',
+        label: "Notificatons",
+        badgeCount: 4),
+    BottomBarItem(icon: 'assets/svg/icons/avatar.svg', label: "Profile"),
+  ];
+
+  List<BottomBarItem> get items => _items;
+
   @override
   void dispose() {
+    this._notificationSubscription?.cancel();
     this.tabController.dispose();
     if (onDispose != null) this.onDispose!();
     super.dispose();
