@@ -1,9 +1,6 @@
-import 'package:ui_tests_units/src/data/implementation/authentication_respository_implementation.dart';
-import 'package:ui_tests_units/src/data/implementation/food_menu_repository_implementation.dart';
-import 'package:ui_tests_units/src/data/providers/remote/authentication_provider.dart';
-import 'package:ui_tests_units/src/data/providers/remote/food_menu_provider.dart';
-import 'package:ui_tests_units/src/data/repositories/authentication_repository.dart';
-import 'package:ui_tests_units/src/data/repositories/food_menu_repository.dart';
+import '../data/providers/remote/remote.dart';
+import '../data/implementation/implementation.dart';
+import '../data/repositories/repositories.dart';
 
 import 'get.dart';
 
@@ -13,7 +10,11 @@ abstract class DependencyInjection {
         AuthenticationRepositoryImpl(AuthenticationProvider());
     final FoodMenuRepositoryImplementation foodMenuRepository =
         FoodMenuRepositoryImplementation(FoodMenuProvider());
+    final WebSocketRepository webSocketRepository =
+        WebSocketRepositoryImplementation(WebSocketProvider());
+
     Get.i.put<FoodMenuRepository>(foodMenuRepository);
     Get.i.put<AuthenticationRepository>(authenticationRepository);
+    Get.i.put<WebSocketRepository>(webSocketRepository);
   }
 }

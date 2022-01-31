@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_tests_units/src/ui/global_controllers/cart_controller.dart';
-import 'package:ui_tests_units/src/utils/font_styles.dart';
 
+import './ui/global_controllers/global_controllers.dart';
+import './utils/font_styles.dart';
 import '../src/utils/colors.dart';
 import './routes/pages.dart';
 
@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<CartController>(create: (_) => CartController()),
+        ChangeNotifierProvider<NotificationsController>(
+            create: (_) => NotificationsController()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
