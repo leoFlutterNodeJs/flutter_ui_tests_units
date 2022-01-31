@@ -26,6 +26,10 @@ class NotificationsController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clear() {
+    _notifications = [];
+  }
+
   @override
   void dispose() {
     _notificationStreamController.close();
