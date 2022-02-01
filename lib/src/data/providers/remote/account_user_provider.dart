@@ -14,6 +14,6 @@ class AccountUserProvider {
         email: 'leocardosodev@gmail.com',
         name: 'Leonardo',
         lastName: 'Silva',
-        birthday: DateTime(1982, 1, 1));
+        birthday: DateTime(1982, 1, 9));
   }
 }
