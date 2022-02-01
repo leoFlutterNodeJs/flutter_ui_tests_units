@@ -55,7 +55,7 @@ class ProfileTab extends StatelessWidget {
               RowProfile(label: "ID", value: "${user!.id}"),
               RowProfile(label: "Nome", value: "${user.name} ${user.lastName}"),
               RowProfile(label: "E-mail", value: "${user.email}"),
-              RowProfile(label: "Nascimento", value: user.birthday?.format),
+              RowProfile(label: "Nascimento", value: user.birthday!.format),
             ],
           ),
           CupertinoFormSection.insetGrouped(
