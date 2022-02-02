@@ -31,11 +31,7 @@ class WebSocketProvider {
   }
 
   Future<void> disconnect() async {
+    await _controller.close();
     _timer?.cancel();
-    await Future.delayed(Duration(seconds: 1));
-  }
-
-  Future<void> dispose() {
-    return _controller.close();
   }
 }

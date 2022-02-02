@@ -16,30 +16,35 @@ typedef VoidCallback = void Function();
 abstract class DependencyInjection {
   static Future<void> initialize() async {
     final preferences = await SharedPreferences.getInstance();
-    final webSocketProvider = WebSocketProvider();
-    final preferencesProvider = PreferencesProvider(preferences);
+
     final authenticationLocalProvider =
         AuthenticationLocalProvider(preferences);
-
     final authenticationRepository = AuthenticationRepositoryImpl(
         AuthenticationProvider(), AuthenticationLocalProvider(preferences));
-    final foodMenuRepository =
-        FoodMenuRepositoryImplementation(FoodMenuProvider());
-    final webSocketRepository =
-        WebSocketRepositoryImplementation(webSocketProvider);
-    final preferencesRepository =
-        PreferencesRepositoryImplementation(preferencesProvider);
     final accountUserRepository = AccountUserRepositoryImplementation(
         AccountUserProvider(authenticationLocalProvider));
 
+    final foodMenuRepository =
+        FoodMenuRepositoryImplementation(FoodMenuProvider());
+
+    final preferencesProvider = PreferencesProvider(preferences);
+    final preferencesRepository =
+        PreferencesRepositoryImplementation(preferencesProvider);
+
     Get.i.put<FoodMenuRepository>(foodMenuRepository);
     Get.i.put<AuthenticationRepository>(authenticationRepository);
-    Get.i.put<WebSocketRepository>(webSocketRepository);
     Get.i.put<PreferencesRepository>(preferencesRepository);
     Get.i.put<AccountUserRepository>(accountUserRepository);
+    Get.i.put<String>("API_KEY", tag: "apiKey");
+    Get.i.lazyPut<WebSocketRepository>(() {
+      final webSocketProvider = WebSocketProvider();
+      final webSocketRepository =
+          WebSocketRepositoryImplementation(webSocketProvider);
+      return webSocketRepository;
+    });
 
     final VoidCallback dispose = () {
-      webSocketProvider.dispose();
+      //// webSocketProvider.dispose();
     };
 
     Get.i.put<VoidCallback>(dispose, tag: "dispose");

@@ -11,7 +11,7 @@ class HomeController extends ChangeNotifier {
   final NotificationsController notificationsController;
   HomeController(this.notificationsController);
 
-  final _webSocketRepository = Get.i.find<WebSocketRepository>();
+  final _webSocketRepository = Get.i.find<WebSocketRepository>(lazy: true);
 
   int _currentPage = 0;
   int get currentPage => _currentPage;
@@ -76,10 +76,11 @@ class HomeController extends ChangeNotifier {
   List<BottomBarItem> get items => _items;
 
   @override
-  void dispose() {
+  void dispose() async {
     this._notificationSubscription?.cancel();
     this.tabController.dispose();
     if (onDispose != null) this.onDispose!();
+    await _webSocketRepository!.disconnect();
     super.dispose();
   }
 }

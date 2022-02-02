@@ -19,8 +19,8 @@ class ProfileTab extends StatelessWidget {
       await Get.i
           .find<PreferencesRepository>()
           ?.setOnBoardAndWelcomeReady(false);
-      await Get.i.find<WebSocketRepository>()!.disconnect();
       context.read<NotificationsController>().clear();
+      Get.i.remove<WebSocketRepository>();
       Navigator.pushNamedAndRemoveUntil(
           context, Routes.LOGIN, (route) => false);
     }

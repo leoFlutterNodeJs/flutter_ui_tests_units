@@ -25,8 +25,6 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<CartController>(create: (_) => CartController()),
-        ChangeNotifierProvider<NotificationsController>(
-            create: (_) => NotificationsController()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
