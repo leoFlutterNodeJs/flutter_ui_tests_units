@@ -6,7 +6,7 @@ import 'package:ui_tests_units/src/data/repositories/repositories.dart';
 import 'package:ui_tests_units/src/helpers/get.dart';
 
 class NotificationsController extends ChangeNotifier {
-  final _webSocketRepository = Get.i.find<WebSocketRepository>();
+  final _webSocketRepository = Get.i.find<WebSocketRepository>(lazy: true);
   late StreamSubscription _subscription;
   List<AppNotifications> _notifications = [];
   List<AppNotifications> get notifications => _notifications;

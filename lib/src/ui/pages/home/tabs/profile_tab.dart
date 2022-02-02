@@ -7,7 +7,7 @@ import 'package:ui_tests_units/src/data/repositories/repositories.dart';
 import 'package:ui_tests_units/src/helpers/get.dart';
 import 'package:ui_tests_units/src/routes/routes.dart';
 import 'package:ui_tests_units/src/ui/global_controllers/global_controllers.dart';
-import 'package:ui_tests_units/src/utils/dialogs.dart';
+import 'package:ui_tests_units/src/utils/utils.dart';
 import 'package:provider/provider.dart';
 
 class ProfileTab extends StatelessWidget {
@@ -19,8 +19,8 @@ class ProfileTab extends StatelessWidget {
       await Get.i
           .find<PreferencesRepository>()
           ?.setOnBoardAndWelcomeReady(false);
-      await Get.i.find<WebSocketRepository>()!.disconnect();
       context.read<NotificationsController>().clear();
+      Get.i.remove<WebSocketRepository>();
       Navigator.pushNamedAndRemoveUntil(
           context, Routes.LOGIN, (route) => false);
     }
@@ -55,7 +55,7 @@ class ProfileTab extends StatelessWidget {
               RowProfile(label: "ID", value: "${user!.id}"),
               RowProfile(label: "Nome", value: "${user.name} ${user.lastName}"),
               RowProfile(label: "E-mail", value: "${user.email}"),
-              RowProfile(label: "Nascimento", value: "${user.birthday}"),
+              RowProfile(label: "Nascimento", value: user.birthday!.format),
             ],
           ),
           CupertinoFormSection.insetGrouped(

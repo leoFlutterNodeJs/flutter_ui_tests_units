@@ -10,33 +10,43 @@ import 'widgets/cart_button.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(create: (_) {
-      final controller =
-          HomeController(context.read<NotificationsController>());
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
-        controller.afterFirstLayout();
-      });
-      Get.i.put<HomeController>(controller);
-      controller.onDispose = () => Get.i.remove<HomeController>();
-      return controller;
-    }, builder: (_, __) {
-      final controller = Provider.of<HomeController>(_, listen: false);
-      return Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: TabBarView(
-            controller: controller.tabController,
-            children: [
-              HomeTab(),
-              FavoritesTab(),
-              NotificationsTab(),
-              ProfileTab(),
-            ],
-          ),
-        ),
-        bottomNavigationBar: HomeBottomBar(),
-        floatingActionButton: CartButton(),
-      );
-    });
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider<NotificationsController>(
+              create: (_) => NotificationsController()),
+        ],
+        builder: (ctx, __) {
+          return ChangeNotifierProvider<HomeController>(
+            create: (_) {
+              final controller =
+                  HomeController(ctx.read<NotificationsController>());
+              WidgetsBinding.instance!.addPostFrameCallback((_) {
+                controller.afterFirstLayout();
+              });
+              Get.i.put<HomeController>(controller);
+              controller.onDispose = () => Get.i.remove<HomeController>();
+              return controller;
+            },
+            builder: (_, __) {
+              final controller = Provider.of<HomeController>(_, listen: false);
+              return Scaffold(
+                backgroundColor: Colors.white,
+                body: SafeArea(
+                  child: TabBarView(
+                    controller: controller.tabController,
+                    children: [
+                      HomeTab(),
+                      FavoritesTab(),
+                      NotificationsTab(),
+                      ProfileTab(),
+                    ],
+                  ),
+                ),
+                bottomNavigationBar: HomeBottomBar(),
+                floatingActionButton: CartButton(),
+              );
+            },
+          );
+        });
   }
 }
